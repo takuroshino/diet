@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIM METHOD - 新時代のダイエット</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 変数定義 */
+        :root {
+            --mint: #E5F5F3;
+            --pink: #FF7B93;
+            --brown: #B3A089;
+            --dark: #333333;
+            --white: #FFFFFF;
+        }
+    
+        /* 基本設定 */
+        body {
+            margin: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+            background: linear-gradient(180deg, var(--white), var(--mint));
+            color: var(--dark);
+            line-height: 1.7;
+        }
+    
+        /* レイアウト構造 */
+        .page-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
+        }
+    
+        .container {
+            max-width: 430px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 2;
+            
+        }
+    
+        /* メインコピー */
+        .main-copy {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.5;
+            text-align: center;
+            margin: 40px 0;
+        }
+    
+        /* 結果ボックス */
+        .result-box {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+            position: relative;
+        }
+    
+        .result-box::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 15px 30px 0 30px;
+            border-color: var(--pink) transparent transparent transparent;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    
+        /* ビフォーアフター */
+        .before-after {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+    
+        .before-after img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    
+        /* 特徴リスト */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+    
+        .feature-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+    
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--brown);
+            transform: rotate(45deg);
+        }
+    
+        /* ハイライト */
+        .highlight {
+            color: var(--pink);
+            font-weight: 700;
+        }
+    
+        /* CTAボタン */
+        .cta-button {
+            display: block;
+            background: var(--pink);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(255,123,147,0.2);
+        }
+    
+        /* サイド画像 */
+        .side-image {
+            width: 45%;
+            opacity: 1;
+            position: absolute;
+            top: 0;
+        }
+    
+        .side-image.left {
+            left: -20px;
+        }
+    
+        .side-image.right {
+            right:-20%;
+        }
+    
+        .side-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: contrast(1.2);
+        }
+    
+        .side-image.right img {
+            transform: scaleX(-1);
+        }
+    
+        /* レスポンシブ対応 */
+        @media (min-width: 800px) {
+            .side-image {
+                display: block;
+            }
+            
+            .container {
+                margin: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body></body>
+    <div class="page-wrapper">
+        <div class="side-image left">
+            <img src="IMG_4213.jpg" alt="">
+        </div>
+
+        <div class="container">
+            <h1 class="main-copy">
+                10分で痩せる<br>
+                新発想のメソッド
+            </h1>
+
+            <div class="result-box">
+                93%が成功した驚きの結果
+            </div>
+
+            <p>
+                「こんなに簡単に痩せられるなんて！」<br>
+                Aさん（28歳）実際の体験者
+            </p>
+
+            <div class="features">
+                <div class="feature-item">
+                    運動なし<br>
+                    食事制限なし<br>
+                    <span class="highlight">ラクに痩せる</span>
+                </div>
+                <div class="feature-item">
+                    最短2週間で<br>
+                    <span class="highlight">-5kg達成</span>
+                </div>
+                <div class="feature-item">
+                    不安なときは<br>
+                    <span class="highlight">LINEで相談</span>
+                </div>
+                <div class="feature-item">
+                    <span class="highlight">3,000+</span><br>
+                    成功実績
+                </div>
+            </div>
+
+            <a href="#contact" class="cta-button">
+                ＼ 無料カウンセリングを予約する ／
+            </a>
+        </div>
+
+        <div class="side-image right">
+            <img src="IMG_4216.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
