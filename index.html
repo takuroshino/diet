@@ -22,6 +22,9 @@
             background: linear-gradient(180deg, var(--white), var(--mint));
             color: var(--dark);
             line-height: 1.7;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
     
         /* レイアウト構造 */
@@ -29,10 +32,11 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            max-width: 1200px;
+            max-width: 100px;
             margin: 0 auto;
             position: relative;
             min-height: 100vh;
+            overflow: hidden;
         }
     
         .container {
@@ -166,9 +170,9 @@
         }
     
         /* レスポンシブ対応 */
-        @media (min-width: 800px) {
+        @media (min-width: 768px) {
             .side-image {
-                display: block;
+                display: none;
             }
             
             .container {
