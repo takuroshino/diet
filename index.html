@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset=utf8>
+    <meta content=width>
     <title>SLIM METHOD - 新時代のダイエット</title>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <style>
-       :root {
+        :root {
             --mint: #E5F5F3;
             --pink: #FF7B93;
+            --pink-light: #FFE5EB;
+            --pink-dark: #FF6B85;
             --brown: #B3A089;
             --dark: #333333;
             --white: #FFFFFF;
+            --gradient-pink: linear-gradient(135deg, #FF7B93, #FF6B85);
         }
-    
+
         /* 基本設定 */
         body {
             margin: 0;
-            font-family: 'Noto Sans JP', sans-serif;
-            background: linear-gradient(180deg, var(--white), var(--mint));
+            font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+            background: linear-gradient(180deg, #ffffff, var(--pink-light), #FFE1E9);
             color: var(--dark);
             line-height: 1.7;
             overflow-x: hidden;
@@ -31,7 +36,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            max-width: 430px;  /* 100pxから変更 */
+            max-width: 430px;
             margin: 0 auto;
             position: relative;
             min-height: 100vh;
@@ -39,7 +44,7 @@
         }
     
         .container {
-            max-width: 430px;  /* 100pxから変更 */
+            max-width: 430px;
             margin: 0 auto;
             padding: 15px;
             position: relative;
@@ -48,70 +53,210 @@
     
         /* メインコピー */
         .main-copy {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            line-height: 1.5;
+            line-height: 1.4;
             text-align: center;
-            margin: 20px 0;
-            width: 100%;  /* 追加 */
-        }
-    
-        /* 結果ボックス */
-        .result-box {
-            background: var(--white);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 100px auto 25px;  /* 0から変更 */
-            text-align: center;
-            position: relative;
-            width: 90%;  /* 追加 */
-        }
-    
-        .result-box::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 15px 30px 0 30px;
-            border-color: var(--pink) transparent transparent transparent;
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-    
-        /* ビフォーアフター */
-        .before-after {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 40px auto;  /* 0から変更 */
-            width: 90%;  /* 追加 */
-        }
-    
-        .before-after img {
+            margin: 40px 0;
             width: 100%;
-            height: auto;
-            border-radius: 8px;
+            opacity: 0;
+            padding: 20px 0;
+            color: var(--dark);
+        }
+
+        .main-copy .emphasis {
+            color: var(--pink);
+            font-size: 3.2rem;
+            display: block;
+            margin: 15px 0;
+            position: relative;
+            padding: 0 10px;
+            text-shadow: 0 2px 4px rgba(255,123,147,0.2);
+        }
+
+        .main-copy .emphasis::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 4px;
+            background: var(--gradient-pink);
+            border-radius: 2px;
+        }
+
+        .main-copy .emphasis::before {
+            content: '';
+            position: absolute;
+            width: 140%;
+            height: 100%;
+            background: var(--pink-light);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            border-radius: 40px;
+            opacity: 0.3;
+        }
+
+        .main-copy.animate {
+            animation: fadeInDown 1s ease forwards;
+        }
+            /* 実績ボックス */
+            .achievement-box {
+            background: var(--gradient-pink);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px auto;
+            text-align: center;
+            width: 90%;
+            color: white;
+            box-shadow: 0 10px 25px rgba(255,123,147,0.3);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .achievement-box.animate {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .achievement-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        .achievement-box .number {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .achievement-box .percent {
+            font-size: 2.5rem;
+        }
+
+        .achievement-box .text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* 体験者の声セクション */
+        .testimonials-section {
+            margin: 60px auto;
+            width: 90%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-pink);
+            border-radius: 2px;
+        }
+
+        .testimonials {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #fff, #fff8f9);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255,123,147,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .testimonial-card.animate {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .info .name {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .info .result {
+            color: var(--pink);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .comment {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin: 0;
         }
     
         /* 特徴リスト */
         .features {
             display: grid;
-            grid-template-columns: 1fr;  /* repeat(2, 1fr)から変更 */
-            gap: 15px;
-            margin: 30px auto;  /* 0から変更 */
-            width: 90%;  /* 追加 */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px auto;
+            width: 90%;
         }
     
         .feature-item {
-            background: var(--white);
-            padding: 20px;
+            background: linear-gradient(135deg, #fff, #fff8f9);
+            padding: 25px 15px;
             border-radius: 8px;
             text-align: center;
             position: relative;
+            transition: all 0.3s ease;
+            opacity: 0;
+            box-shadow: 0 4px 15px rgba(255,123,147,0.1);
         }
-    
+
         .feature-item::before {
             content: '';
             position: absolute;
@@ -122,6 +267,20 @@
             background: var(--brown);
             transform: rotate(45deg);
         }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,123,147,0.2);
+        }
+
+        .feature-item.animate {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .feature-item.animate:nth-child(1) { animation-delay: 0.2s; }
+        .feature-item.animate:nth-child(2) { animation-delay: 0.4s; }
+        .feature-item.animate:nth-child(3) { animation-delay: 0.6s; }
+        .feature-item.animate:nth-child(4) { animation-delay: 0.8s; }
     
         /* ハイライト */
         .highlight {
@@ -132,60 +291,129 @@
         /* CTAボタン */
         .cta-button {
             display: block;
-            background: var(--pink);
+            background: var(--gradient-pink);
             color: var(--white);
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2rem;
-            margin: 40px auto;  /* 0から変更 */
-            width: 90%;  /* 追加 */
+            font-size: 1.3rem;
+            margin: 40px auto;
+            width: 90%;
+            border: 2px solid #fff;
             box-shadow: 0 5px 15px rgba(255,123,147,0.2);
+            animation: pulse 2s infinite;
         }
-    
+
         /* サイド画像 */
         .side-image {
             display: block; 
             width: 45%;
-            opacity: 0.7;
+            opacity: 0;
             position: absolute;
             top: 0%;
         }
+    
         .side-image.left {
-    left: -46px;
-}
+            left: -46px;
+        }
 
-.side-image.right {
-    right: -10%;
-}
+        .side-image.left img {
+            width: 200px;
+            height: 250px;
+        }
 
-.side-image img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: contrast(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.8));  
-    mix-blend-mode: multiply;  /
-}
+        .side-image.right {
+            right: -10%;
+        }
+    
+        .side-image img {
+            width: 100%;
+            height: 200%;
+            object-fit: contain;
+            filter: contrast(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.8));
+            mix-blend-mode: multiply;
+        }
 
+        .side-image.left.animate {
+            animation: slideInLeft 1.2s ease forwards;
+        }
+
+        .side-image.right.animate {
+            animation: slideInRight 1.2s ease forwards 0.3s;
+        }
+    
+        /* アニメーション定義 */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 0.7;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 0.7;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     
         /* PC表示用 */
         @media (min-width: 769px) {
             .page-wrapper {
                 max-width: 1200px;
             }
-
-            .features {
-                grid-template-columns: repeat(2, 1fr);
+    
+            .testimonials {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .testimonial-card {
+                flex: 1;
+                min-width: 300px;
             }
             
             .side-image {
-                display: block;
                 width: 45%;
                 opacity: 1;
-                position: absolute;
-                top: 0;
             }
         
             .side-image.left {
@@ -194,9 +422,6 @@
         
             .side-image.right {
                 right: -20%;
-            }
-        
-        
             }
         
             .side-image.right img {
@@ -208,23 +433,15 @@
 <body>
     <div class="page-wrapper">
         <div class="side-image left">
-            <img src="IMG_4213.jpg" alt="">
+            <img src="IMG_4219.PNG" alt="ダイエット成功前">
         </div>
 
         <div class="container">
             <h1 class="main-copy">
-                10分で痩せる<br>
-                新発想のメソッド
+                寝る前10分で<br>
+                <span class="emphasis">-5kg叶える</span><br>
+                新メソッド
             </h1>
-
-            <div class="result-box">
-                93%が成功した驚きの結果
-            </div>
-
-            <p>
-                「こんなに簡単に痩せられるなんて！」<br>
-                Aさん（28歳）実際の体験者
-            </p>
 
             <div class="features">
                 <div class="feature-item">
@@ -246,14 +463,111 @@
                 </div>
             </div>
 
+            <div class="testimonials-section">
+                <h2 class="section-title">実際に成功した方の声</h2>
+                
+                <div class="testimonials">
+                    <div class="testimonial-card">
+                        <div class="profile">
+                            <div class="avatar">A.S</div>
+                            <div class="info">
+                                <div class="name">Aさん（28歳）</div>
+                                <div class="result">-6.5kg達成</div>
+                            </div>
+                        </div>
+                        <p class="comment">
+                            「寝る前のたった10分で、こんなに変われるなんて信じられませんでした。
+                            食事制限なしでここまで痩せられて本当に嬉しいです！」
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="profile">
+                            <div class="avatar">M.K</div>
+                            <div class="info">
+                                <div class="name">Mさん（35歳）</div>
+                                <div class="result">-8.2kg達成</div>
+                            </div>
+                        </div>
+                        <p class="comment">
+                            「子育て中で時間がなかったのですが、寝る前の短時間で実践できて本当に助かりました。
+                            周りからも『痩せた？』と言われるようになって自信がつきました！」
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="profile">
+                            <div class="avatar">R.T</div>
+                            <div class="info">
+                                <div class="name">Rさん（42歳）</div>
+                                <div class="result">-5.3kg達成</div>
+                            </div>
+                        </div>
+                        <p class="comment">
+                            「年齢的に諦めかけていましたが、このメソッドに出会えて本当に良かったです。
+                            無理なく続けられるのが一番の魅力です！」
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievement-box">
+                <div class="number">93<span class="percent">%</span></div>
+                <div class="text">が成功を<br>実感しました</div>
+            </div>
+
             <a href="#contact" class="cta-button">
                 ＼ 無料カウンセリングを予約する ／
             </a>
         </div>
 
         <div class="side-image right">
-            <img src="IMG_4216.jpg" alt="">
+            <img src="IMG_4218.PNG" alt="ダイエット成功後">
         </div>
     </div>
+
+    <script>
+        class AnimationController {
+            constructor() {
+                this.observer = new IntersectionObserver(this.handleIntersection.bind(this), {
+                    threshold: 0.1,
+                    rootMargin: '-50px'
+                });
+                
+                this.initializeAnimations();
+            }
+
+            handleIntersection(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    } else {
+                        entry.target.classList.remove('animate');
+                    }
+                });
+            }
+
+            initializeAnimations() {
+                const targetElements = [
+                    '.side-image.left',
+                    '.main-copy',
+                    '.side-image.right',
+                    '.feature-item',
+                    '.testimonial-card',
+                    '.achievement-box'
+                ];
+
+                targetElements.forEach(selector => {
+                    document.querySelectorAll(selector).forEach(element => {
+                        this.observer.observe(element);
+                    });
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new AnimationController();
+        });
+    </script>
 </body>
 </html>
