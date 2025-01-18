@@ -6,8 +6,7 @@
     <title>SLIM METHOD - 新時代のダイエット</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* 変数定義 */
-        :root {
+       :root {
             --mint: #E5F5F3;
             --pink: #FF7B93;
             --brown: #B3A089;
@@ -32,7 +31,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            max-width: 100px;
+            max-width: 430px;  /* 100pxから変更 */
             margin: 0 auto;
             position: relative;
             min-height: 100vh;
@@ -40,21 +39,21 @@
         }
     
         .container {
-            max-width: 430px;
+            max-width: 430px;  /* 100pxから変更 */
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 15px;
             position: relative;
             z-index: 2;
-            
         }
     
         /* メインコピー */
         .main-copy {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             line-height: 1.5;
             text-align: center;
-            margin: 40px 0;
+            margin: 20px 0;
+            width: 100%;  /* 追加 */
         }
     
         /* 結果ボックス */
@@ -62,9 +61,10 @@
             background: var(--white);
             padding: 15px;
             border-radius: 8px;
-            margin: 25px 0;
+            margin: 25px auto;  /* 0から変更 */
             text-align: center;
             position: relative;
+            width: 90%;  /* 追加 */
         }
     
         .result-box::after {
@@ -85,7 +85,8 @@
             background: var(--white);
             padding: 25px;
             border-radius: 12px;
-            margin: 40px 0;
+            margin: 40px auto;  /* 0から変更 */
+            width: 90%;  /* 追加 */
         }
     
         .before-after img {
@@ -97,9 +98,10 @@
         /* 特徴リスト */
         .features {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;  /* repeat(2, 1fr)から変更 */
             gap: 15px;
-            margin: 30px 0;
+            margin: 30px auto;  /* 0から変更 */
+            width: 90%;  /* 追加 */
         }
     
         .feature-item {
@@ -138,50 +140,56 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 1.2rem;
-            margin: 40px 0;
+            margin: 40px auto;  /* 0から変更 */
+            width: 90%;  /* 追加 */
             box-shadow: 0 5px 15px rgba(255,123,147,0.2);
         }
     
         /* サイド画像 */
         .side-image {
-            width: 45%;
-            opacity: 1;
-            position: absolute;
-            top: 0;
+            display: none;  /* モバイルでは非表示 */
         }
     
-        .side-image.left {
-            left: -20px;
-        }
-    
-        .side-image.right {
-            right:-20%;
-        }
-    
-        .side-image img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            filter: contrast(1.2);
-        }
-    
-        .side-image.right img {
-            transform: scaleX(-1);
-        }
-    
-        /* レスポンシブ対応 */
-        @media (min-width: 768px) {
-            .side-image {
-                display: none;
+        /* PC表示用 */
+        @media (min-width: 769px) {
+            .page-wrapper {
+                max-width: 1200px;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .container {
-                margin: 0 20px;
+            .side-image {
+                display: block;
+                width: 45%;
+                opacity: 1;
+                position: absolute;
+                top: 0;
+            }
+        
+            .side-image.left {
+                left: -20px;
+            }
+        
+            .side-image.right {
+                right: -20%;
+            }
+        
+            .side-image img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                filter: contrast(1.2);
+            }
+        
+            .side-image.right img {
+                transform: scaleX(-1);
             }
         }
     </style>
 </head>
-<body></body>
+<body>
     <div class="page-wrapper">
         <div class="side-image left">
             <img src="IMG_4213.jpg" alt="">
