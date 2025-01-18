@@ -61,7 +61,7 @@
             background: var(--white);
             padding: 15px;
             border-radius: 8px;
-            margin: 25px auto;  /* 0から変更 */
+            margin: 100px auto 25px;  /* 0から変更 */
             text-align: center;
             position: relative;
             width: 90%;  /* 追加 */
@@ -147,8 +147,28 @@
     
         /* サイド画像 */
         .side-image {
-            display: none;  /* モバイルでは非表示 */
+            display: block; 
+            width: 45%;
+            opacity: 0.7;
+            position: absolute;
+            top: 0%;
         }
+        .side-image.left {
+    left: -46px;
+}
+
+.side-image.right {
+    right: -10%;
+}
+
+.side-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: contrast(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.8));  
+    mix-blend-mode: multiply;  /
+}
+
     
         /* PC表示用 */
         @media (min-width: 769px) {
@@ -176,11 +196,7 @@
                 right: -20%;
             }
         
-            .side-image img {
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-                filter: contrast(1.2);
+        
             }
         
             .side-image.right img {
