@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset=utf8>
-    <meta content=width>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLIM METHOD - 新時代のダイエット</title>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -103,57 +103,26 @@
         .main-copy.animate {
             animation: fadeInDown 1s ease forwards;
         }
-            /* 実績ボックス */
-            .achievement-box {
-            background: var(--gradient-pink);
-            padding: 30px;
-            border-radius: 20px;
-            margin: 40px auto;
+
+        /* 結果ボックス */
+        .result-box {
+            background: linear-gradient(135deg, #fff, #fff8f9);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 60px auto 40px;
             text-align: center;
-            width: 90%;
-            color: white;
-            box-shadow: 0 10px 25px rgba(255,123,147,0.3);
             position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .achievement-box.animate {
-            animation: slideIn 0.5s ease forwards;
-        }
-
-        .achievement-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-            animation: shine 3s infinite;
-        }
-
-        .achievement-box .number {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .achievement-box .percent {
-            font-size: 2.5rem;
-        }
-
-        .achievement-box .text {
-            font-size: 1.2rem;
+            width: 90%;
+            border: 4px solid var(--pink);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            font-size: 1.3rem;
             font-weight: 700;
-            line-height: 1.4;
         }
 
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        .result-box .number {
+            font-size: 1.8rem;
+            color: var(--pink);
+            font-weight: 800;
         }
 
         /* 体験者の声セクション */
@@ -309,31 +278,29 @@
         /* サイド画像 */
         .side-image {
             display: block; 
-            width: 45%;
+            width: 200px;
+            height: 267px;
             opacity: 0;
             position: absolute;
-            top: 0%;
+            top: 50px;
+            z-index: 1;
         }
     
         .side-image.left {
-            left: -46px;
-        }
-
-        .side-image.left img {
-            width: 200px;
-            height: 250px;
+            left: calc(50% - 430px);
         }
 
         .side-image.right {
-            right: -10%;
+            right: calc(50% - 430px);
         }
     
         .side-image img {
             width: 100%;
-            height: 200%;
-            object-fit: contain;
-            filter: contrast(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.8));
-            mix-blend-mode: multiply;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: contrast(1.1) brightness(1.05);
+            box-shadow: 0 4px 20px rgba(255,123,147,0.2);
         }
 
         .side-image.left.animate {
@@ -395,6 +362,41 @@
             }
         }
     
+        /* レスポンシブ対応 */
+        @media (max-width: 1200px) {
+            .side-image.left {
+                left: 20px;
+            }
+            
+            .side-image.right {
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .side-image {
+                width: 150px;
+                height: 200px;
+            }
+            
+            .side-image.left {
+                left: 0;
+                transform: translateX(-30%);
+            }
+            
+            .side-image.right {
+                right: 0;
+                transform: translateX(30%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .side-image {
+                width: 120px;
+                height: 160px;
+            }
+        }
+
         /* PC表示用 */
         @media (min-width: 769px) {
             .page-wrapper {
@@ -442,6 +444,10 @@
                 <span class="emphasis">-5kg叶える</span><br>
                 新メソッド
             </h1>
+
+            <div class="result-box">
+                <span class="number">93</span>%が成功した驚きの結果
+            </div>
 
             <div class="features">
                 <div class="feature-item">
@@ -511,11 +517,6 @@
                 </div>
             </div>
 
-            <div class="achievement-box">
-                <div class="number">93<span class="percent">%</span></div>
-                <div class="text">が成功を<br>実感しました</div>
-            </div>
-
             <a href="#contact" class="cta-button">
                 ＼ 無料カウンセリングを予約する ／
             </a>
@@ -541,8 +542,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animate');
-                    } else {
-                        entry.target.classList.remove('animate');
                     }
                 });
             }
@@ -553,8 +552,7 @@
                     '.main-copy',
                     '.side-image.right',
                     '.feature-item',
-                    '.testimonial-card',
-                    '.achievement-box'
+                    '.testimonial-card'
                 ];
 
                 targetElements.forEach(selector => {
